@@ -9,14 +9,13 @@ function Find-GraphPath {
     )
     
     begin {
-        
+        $stack = New-Object -TypeName System.Collections.Stack
     }
     
     process {
-        $obj = $Graph | ConvertTo-Json
-        
+        $Graph | ForEach-Object { $stack.Push( $_ ) }        
     }
-    
+
     end {
         
     }
