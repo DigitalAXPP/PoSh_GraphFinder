@@ -9,11 +9,11 @@ function Find-GraphPath {
     )
     
     begin {
-        $stack = New-Object -TypeName System.Collections.Stack
+        $queue = New-Object -TypeName System.Collections.Queue
     }
     
     process {
-        $Graph | ForEach-Object { $stack.Push( $_ ) }        
+        $Graph | ForEach-Object { $queue.Enqueue(( $_ ) }        
     }
 
     end {
