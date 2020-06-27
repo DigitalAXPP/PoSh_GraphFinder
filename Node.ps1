@@ -6,10 +6,13 @@ class Node {
 
     Node([string]$Name) {
         $this.NodeName = $Name
+        $this.Edge = New-Object -TypeName System.Collections.ArrayList        
+        $this.Traversed = New-Object -TypeName System.Collections.ArrayList
+        $this.Queue = New-Object -TypeName System.Collections.Queue
     }
 
     [Node]Add_Edge([Node]$NewEdge){
-        return $this.Edge.Add($NewEdge.NodeName)
+        return $this.Edge.Add($NewEdge)
     }
 
     [Node]Traverse(){
