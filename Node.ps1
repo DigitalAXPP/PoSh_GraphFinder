@@ -15,11 +15,29 @@ class Node {
         return $this.Edge.Add($NewEdge)
     }
 
-    [Node]Traverse(){
+    [Node]TraverseDepthFirst(){
         foreach ($item in $this.Edge) {
             $this.Queue.Enqueue($item)
         }
 
+        while (-not($this.Queue.Count -eq 0)) {
+            [Node]$vertex = $this.Queue.Dequeue()
+            if ($this.Traversed -notcontains $vertex) {
+                $this.Traversed.Add($vertex)
+                foreach ($item in $vertex.Edge) {
+                    $this.Queue.Enqueue($item)
+                }
+            }
+        }
+        return $this
+    }
+
+    [Node]TraverseBreadthFirst(){
+        foreach ($item in $this.Edge) {
+            $this.Queue.Enqueue($item)
+        }
+        
+        $this.Traversed.Add($this)
         while (-not($this.Queue.Count -eq 0)) {
             [Node]$vertex = $this.Queue.Dequeue()
             if ($this.Traversed -notcontains $vertex) {
