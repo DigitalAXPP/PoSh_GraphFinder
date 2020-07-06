@@ -15,3 +15,14 @@ $Punkt3.Add_Edge($Punkt4)
 $Punkt4.Add_Edge($Punkt3)
 $Punkt6.Add_Edge($Punkt5)
 $Punkt5.Add_Edge($Punkt6)
+
+
+
+$PunktA = [Node]::new("A")
+$PunktB = [Node]::new("B")
+$PunktC = [Node]::new("C")
+$PunktD = [Node]::new("D")
+
+$PunktA.Add_Edge($PunktB)
+$PunktB.Add_Edge($PunktC)
+$PunktB.Add_Edge($PunktD)
