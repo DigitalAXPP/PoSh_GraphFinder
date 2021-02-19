@@ -18,6 +18,13 @@ class Node {
     }
 
     [Node]TraverseDepthFirst() {
+    }
+
+    [Node]Add_Edge([Node]$NewEdge){
+        return $this.Edge.Add($NewEdge)
+    }
+
+    [Node]Traverse(){
         foreach ($item in $this.Edge) {
             $this.Queue.Enqueue($item)
         }
